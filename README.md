@@ -1,7 +1,7 @@
 # README
 
 ## Stock Trading App
-  Descriptions...
+  An app that allows you to buy and sell stocks.
   
   - ### Stories
   ![Stock Trading App User Stories](./public/stock-app-user-stories.png)

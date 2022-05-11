@@ -2,9 +2,12 @@
 
 ## Stock Trading App
   Descriptions...
+  
+  - ### Stories
+  ![Stock Trading App User Stories](./public/stock-app-user-stories.png)
 
-  ### ERD
+
+  = ### ERD
   ![Stock Trading App ERD](./public/stock-app-erd.png)
 
 
-  ### Stories

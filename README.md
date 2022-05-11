@@ -3,6 +3,8 @@
 ## Stock Trading App
   An app that allows you to monitor the market, buy and sell stocks.
   
+  Tech used: ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)
+  
   - ### Stories
   ![Stock Trading App User Stories](./public/stock-app-user-stories.png)
 

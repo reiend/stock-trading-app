@@ -17,7 +17,7 @@
   ![Stock Trading App User Stories](./public/stock-app-user-stories.png)
 
 
-  - ### ERD
+  - ### eEntity Relationship Diagram
   ![Stock Trading App ERD](./public/stock-app-erd.png)
 
 

@@ -7,7 +7,7 @@
   ![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
   ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
-  <img src="https://iconape.com/wp-content/files/ss/347290/png/rspec-logo.png" alt="Rspec" width="25"/>
+  <img src="https://iconape.com/wp-content/files/ss/347290/png/rspec-logo.png" alt="Rspec" width="30"/>
   
   - ### Stories
   ![Stock Trading App User Stories](./public/stock-app-user-stories.png)

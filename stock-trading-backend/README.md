@@ -15,11 +15,11 @@
 
   
   - ### Stories
-  ![Stock Trading App User Stories](./stock-trading-backend/public/stock-app-user-stories.png)
+  ![Stock Trading App User Stories](./public/stock-app-user-stories.png)
 
 
   - ### Entity Relationship Diagram
-  ![Stock Trading App ERD](./stock-trading-backend/public/stock-app-erd.png)
+  ![Stock Trading App ERD](./public/stock-app-erd.png)
 
 
 ## More info

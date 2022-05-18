@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+j1 # frozen_string_literal: true
 
 # Be sure to restart your server when you modify this file.
 
@@ -13,6 +13,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
     resource '*',
              headers: :any,
+             expose: ['Authorization'], # use to dispatch and receive JWT tokens
              methods: %i[get post put patch delete options head]
   end
 end

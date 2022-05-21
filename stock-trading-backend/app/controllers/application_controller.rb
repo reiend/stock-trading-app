@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer
       .permit(
         :sign_up,
-        keys: %i[first_name last_name user_name]
+        keys: %i[first_name last_name balance]
       )
   end
 end

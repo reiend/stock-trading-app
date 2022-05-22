@@ -5,9 +5,15 @@ RSpec.describe Transaction, type: :model do
   let(:transaction) do
     Transaction.new(
       transaction_type: 'buy',
+      bought_price: 425.52,
       stock_name: 'Tesla',
       quantity: 2
     )
+  end
+
+  it '1, should belongs_to account' do
+    account = Transaction.reflect_on_association(:account)
+    expect(account.macro).to eq(:belongs_to)
   end
 
   context 'transaction_type' do
@@ -24,10 +30,10 @@ RSpec.describe Transaction, type: :model do
 
   context 'bought_price' do
     it '1, must be greater than or equal to 0' do
-      expect(stock1.current_price).to be >= 0
+      expect(transaction.bought_price).to be >= 0
     end
     it '2, should be some type of Number' do
-      expect(stock1.current_price).to be_a BigDecimal || Integer
+      expect(transaction.bought_price).to be_a BigDecimal || Integer
     end
   end
 

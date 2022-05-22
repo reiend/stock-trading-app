@@ -5,7 +5,6 @@ class CreateStocks < ActiveRecord::Migration[7.0]
       t.decimal :current_price
       t.decimal :change_percent
       t.integer :quantity
-      t.string :role, default: 'trader'
 
       t.timestamps
     end

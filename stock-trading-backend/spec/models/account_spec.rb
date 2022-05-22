@@ -14,11 +14,11 @@ RSpec.describe Account, type: :model do
   let(:account_admin) { Account.new(role: 'admin') }
   let(:account_admin_dummy) { Account.new(role: 'role_should_be_not_admin') }
 
+  it '1, should have_many transactions' do
+    transactions = Account.reflect_on_association(:transactions)
+    expect(transactions.macro).to eq(:has_many)
+  end
   context 'Additional Attributes' do
-    it '1, should have_many transactions' do
-      transactions = Account.reflect_on_association(:transactions)
-      expect(transactions.macro).to eq(:has_many)
-    end
     context 'Trader' do
       context 'first_name' do
         it '1, shouldn\'t be empty' do

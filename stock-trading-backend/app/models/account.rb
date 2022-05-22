@@ -1,5 +1,6 @@
 class Account < ApplicationRecord
   has_many :transactions
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # has_many :transactions

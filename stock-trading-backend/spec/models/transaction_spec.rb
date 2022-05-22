@@ -22,6 +22,15 @@ RSpec.describe Transaction, type: :model do
     end
   end
 
+  context 'bought_price' do
+    it '1, must be greater than or equal to 0' do
+      expect(stock1.current_price).to be >= 0
+    end
+    it '2, should be some type of Number' do
+      expect(stock1.current_price).to be_a BigDecimal || Integer
+    end
+  end
+
   context 'quantity' do
     it '1, must be greater than or equal to 0' do
       expect(transaction.quantity).to be >= 0

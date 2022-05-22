@@ -6,6 +6,7 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
     create_table :transactions do |t|
       t.string :stock_name
       t.string :transaction_type
+      t.decimal :bought_price
       t.integer :quantity
 
       t.timestamps

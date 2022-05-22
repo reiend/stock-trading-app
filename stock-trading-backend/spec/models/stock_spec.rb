@@ -47,10 +47,7 @@ RSpec.describe Stock, type: :model do
   end
 
   context 'change percent' do
-    it '1, must be greater than or equal to 0' do
-      expect(stock1.change_percent).to be >= 0
-    end
-    it '2, should be some type of Number' do
+    it '1, should be some type of Number' do
       expect(stock1.change_percent).to be_a BigDecimal || Integer
     end
   end

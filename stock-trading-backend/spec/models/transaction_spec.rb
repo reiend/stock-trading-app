@@ -26,6 +26,9 @@ RSpec.describe "Transaction's Model", type: :model do
     it '1, must be type String' do
       expect(transaction.stock_name).to be_a String
     end
+    it '2, must have a value' do
+      expect(transaction.stock_name).to_not be_nil
+    end
   end
 
   context 'bought_price' do
@@ -35,6 +38,9 @@ RSpec.describe "Transaction's Model", type: :model do
     it '2, should be some type of Number' do
       expect(transaction.bought_price).to be_a BigDecimal || Integer
     end
+    it '3, must have a value' do
+      expect(transaction.bought_price).to_not be_nil
+    end
   end
 
   context 'quantity' do
@@ -43,6 +49,9 @@ RSpec.describe "Transaction's Model", type: :model do
     end
     it '2, mmust be transaction_type Integer' do
       expect(transaction.quantity).to be_an Integer
+    end
+    it '3, must have a value' do
+      expect(transaction.quantity).to_not be_nil
     end
   end
 end

@@ -28,6 +28,9 @@ RSpec.describe "Stock's Model", type: :model do
     it '2, must be type String' do
       expect(stock1.company_name).to be_a String
     end
+    it '3, must have a value' do
+      expect(stock1.company_name).to_not be_nil
+    end
   end
   context 'quantity' do
     it '1, must be greater than or equal to 0' do
@@ -35,6 +38,9 @@ RSpec.describe "Stock's Model", type: :model do
     end
     it '2, must be type Integer' do
       expect(stock1.quantity).to be_an Integer
+    end
+    it '3, must have a value' do
+      expect(stock1.quantity).to_not be_nil
     end
   end
   context 'current price' do
@@ -44,11 +50,17 @@ RSpec.describe "Stock's Model", type: :model do
     it '2, should be some type of Number' do
       expect(stock1.current_price).to be_a BigDecimal || Integer
     end
+    it '3, must have a value' do
+      expect(stock1.current_price).to_not be_nil
+    end
   end
 
   context 'change percent' do
     it '1, should be some type of Number' do
       expect(stock1.change_percent).to be_a BigDecimal || Integer
+    end
+    it '2, must have a value' do
+      expect(stock1.change_percent).to_not be_nil
     end
   end
 end

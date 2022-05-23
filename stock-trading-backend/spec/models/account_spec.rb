@@ -30,6 +30,9 @@ RSpec.describe "Account's Model", type: :model do
         it '3, length should be less than 20 but greater than equal 3' do
           expect(account_trader1.first_name.size).to be <= 20 && be >= 3
         end
+        it '4, must have a value' do
+          expect(account_trader1.first_name).to_not be_nil
+        end
       end
 
       context 'last_name' do
@@ -41,6 +44,9 @@ RSpec.describe "Account's Model", type: :model do
         end
         it '3, length should be less than 20 but greater than equal 3' do
           expect(account_trader1.last_name.size).to be <= 20 && be >= 3
+        end
+        it '4, must have a value' do
+          expect(account_trader1.last_name).to_not be_nil
         end
       end
 

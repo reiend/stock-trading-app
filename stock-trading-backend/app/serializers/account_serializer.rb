@@ -1,4 +1,4 @@
 class AccountSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :email, :created_at
+  attributes :id, :first_name, :last_name, :balance, :email, :created_at
 end

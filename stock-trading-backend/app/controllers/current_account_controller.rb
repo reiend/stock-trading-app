@@ -1,0 +1,2 @@
+class CurrentAccountController < ApplicationController
+end

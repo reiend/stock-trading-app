@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Account, type: :model do
+RSpec.describe "Account's Model", type: :model do
   # trader
   let(:account_trader1) do
     Account.new(
@@ -68,9 +68,6 @@ RSpec.describe Account, type: :model do
       context 'role' do
         it '1, shouldn\'t be equal to trader' do
           expect(account_admin.role).to_not eq('trader')
-        end
-        it '2, must be admin' do
-          expect(account_admin.role).to eq('admin')
         end
         it '2, must be admin' do
           expect(account_admin.role).to eq('admin')

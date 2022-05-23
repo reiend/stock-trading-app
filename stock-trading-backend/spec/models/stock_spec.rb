@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Stock, type: :model do
+RSpec.describe "Stock's Model", type: :model do
   # Stocks
   # Tesla
   let(:stock1) do

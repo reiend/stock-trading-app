@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Transaction, type: :model do
+RSpec.describe "Transaction's Model", type: :model do
   # Transactions
   let(:transaction) do
     Transaction.new(

@@ -4,4 +4,8 @@ class CurrentAccountController < ApplicationController
   def index
     render json: current_account
   end
+
+  # stocks_bought
+  # stocks_sold
+  # transactions
 end

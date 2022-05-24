@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'CurrentAccounts', type: :request do
+<<<<<<< HEAD
   describe 'Get' do
     before do
       @account = FactoryBot.create :account

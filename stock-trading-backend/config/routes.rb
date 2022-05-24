@@ -8,4 +8,6 @@ Rails.application.routes.draw do
                           sessions: 'accounts/sessions',
                           registrations: 'accounts/registrations'
                         }
+
+  get '/current_account', to: 'current_account#index'
 end

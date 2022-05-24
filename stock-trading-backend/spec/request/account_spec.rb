@@ -19,8 +19,7 @@ RSpec.describe 'Account\'s Request', type: :request do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
       it 'response created' do
-        # why 200 not 201
-        # expect(response).to have_http_status(:created)
+        expect(response).to have_http_status(:success)
       end
     end
     describe '/signin' do
@@ -33,3 +32,4 @@ RSpec.describe 'Account\'s Request', type: :request do
     end
   end
 end
+

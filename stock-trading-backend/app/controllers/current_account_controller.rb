@@ -10,6 +10,7 @@ class CurrentAccountController < ApplicationController
       render json: current_account.transactions.where(transaction_type: 'buy')
     else
       render json: {
+        status: '401',
         message: 'account role must be trader'
       }
     end
@@ -20,6 +21,7 @@ class CurrentAccountController < ApplicationController
       render json: current_account.transactions.where(transaction_type: 'sold')
     else
       render json: {
+        status: '401',
         message: 'account role must be trader'
       }
     end
@@ -30,6 +32,7 @@ class CurrentAccountController < ApplicationController
       render json: current_account.transactions
     else
       render json: {
+        status: '401',
         message: 'account role must be trader'
       }
     end
@@ -40,6 +43,7 @@ class CurrentAccountController < ApplicationController
       render json: Account.all.where(role: 'trader')
     else
       render json: {
+        status: '401',
         message: 'account role must be admin'
       }
     end

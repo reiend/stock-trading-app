@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/current_account/stocks_bought', to: 'current_account#stocks_bought'
   get '/current_account/stocks_sold', to: 'current_account#stocks_bought'
   get '/current_account/transactions', to: 'current_account#transactions'
+
   get '/current_account/trader_list', to: 'current_account#trader_list'
 end

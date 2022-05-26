@@ -10,4 +10,7 @@ Rails.application.routes.draw do
                         }
 
   get '/current_account', to: 'current_account#index'
+  get '/current_account/stocks_bought', to: 'current_account#stocks_bought'
+  get '/current_account/stocks_sold', to: 'current_account#stocks_bought'
+  get '/current_account/transactions', to: 'current_account#transactions'
 end

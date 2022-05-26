@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin', type: :request do
+  before(:each) do
+    @account_admin = FactoryBot.create :admin
+    @account_admin.confirm
+    @account_trader = FactoryBot.create :trader
+    sign_in @account_trader
+  end
   describe 'Post' do
-    before(:each) do
-      @account_admin = FactoryBot.create :admin
-      @account_admin.confirm
-      @account_trader = FactoryBot.create :trader
-      sign_in @account_trader
-    end
-
-    describe '/admin/trader/' do
+    describe '/admin/trader/create' do
       before(:each) do
         headers = { 'ACCEPT' => 'application/json' }
         post '/admin/trader', params: {
@@ -22,33 +21,31 @@ RSpec.describe 'Admin', type: :request do
           }
         }, headers:
       end
-      it 'successfully created a trader' do
+      it '1, successfully created a trader' do
         expect(response).to have_http_status(200)
       end
-      it 'response json' do
+      it '2, response json' do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
+  end
 
-    describe 'Patch' do
-      describe '/admin/trader/:id' do
-        before(:each) do
-          headers = { 'ACCEPT' => 'application/json' }
-          trader_created_id = @account_trader.id
-          patch "/admin/trader/#{trader_created_id}/edit", params: {
-            account: {
-              confirmed_at: true
-            }
-          }, headers:
-        end
+  describe 'Patch' do
+    describe '/admin/trader/:id/approve' do
+      before(:each) do
+        headers = { 'ACCEPT' => 'application/json' }
+        trader_created_id = @account_trader.id
+        patch "/admin/trader/#{trader_created_id}/approve", headers:
+      end
 
-        it 'successfully approved a trader' do
-          expect(response).to have_http_status(:success)
-        end
+      it '1, successfully approved a trader' do
+        @account_trader.confirm
+        expect(@account_trader.confirmed_at).to_not be_nil
+        expect(response).to have_http_status(:success)
+      end
 
-        it 'response json' do
-          expect(response.content_type).to eq('application/json; charset=utf-8')
-        end
+      it '2, response json' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end

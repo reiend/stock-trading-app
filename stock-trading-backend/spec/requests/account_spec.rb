@@ -15,18 +15,18 @@ RSpec.describe 'Account\'s Request', type: :request do
       }, headers:
     end
     describe '/signup' do
-      it 'response json' do
+      it '1, response json' do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
-      it 'response created' do
+      it '2, successfully created an account' do
         expect(response).to have_http_status(:success)
       end
     end
     describe '/signin' do
-      it 'response json' do
+      it '1, response json' do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
-      it 'response success' do
+      it '2, successfully signin' do
         expect(response).to have_http_status(:success)
       end
     end

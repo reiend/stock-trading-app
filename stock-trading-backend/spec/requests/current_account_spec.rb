@@ -13,21 +13,21 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         before(:each) do
           get '/current_account'
         end
-        it 'success response' do
+        it '1, success response' do
           expect(response).to have_http_status(:success)
         end
-        it 'response json' do
+        it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it 'render current_account as trader should not raise an error' do
+        it '3, render current_account as trader should not raise an error' do
           expect { response.body }.to_not raise_error
         end
-        it 'account is successfully created' do
+        it '4, account is successfully created' do
           trader_created_id = JSON.parse(response.body)['id']
           expect(@account).to_not be_nil
           expect(Account.where(id: trader_created_id)).to_not be_nil
         end
-        it 'to signin, account trader must be signup' do
+        it '5, to signin, account trader must be signup' do
           trader_created_id = JSON.parse(response.body)['id']
           expect(Account.where(id: trader_created_id)).to_not be_nil
         end
@@ -37,13 +37,13 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         before(:each) do
           get '/current_account/stocks_bought'
         end
-        it 'success response' do
+        it '1, success response' do
           expect(response).to have_http_status(:success)
         end
-        it 'response json' do
+        it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it 'render all stocks bought should not raise an error' do
+        it '3, render all stocks bought should not raise an error' do
           expect { response.body }.to_not raise_error
         end
       end
@@ -51,13 +51,13 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         before(:each) do
           get '/current_account/stocks_sold'
         end
-        it 'success response' do
+        it '1, success response' do
           expect(response).to have_http_status(:success)
         end
-        it 'response json' do
+        it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it 'render all stocks sold should not raise an error' do
+        it '3, render all stocks sold should not raise an error' do
           expect { response.body }.to_not raise_error
         end
       end
@@ -65,13 +65,13 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         before(:each) do
           get '/current_account/transactions'
         end
-        it 'success response' do
+        it '1, success response' do
           expect(response).to have_http_status(:success)
         end
-        it 'response json' do
+        it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it 'render all transactions should not raise an error' do
+        it '3, render all transactions should not raise an error' do
           expect { response.body }.to_not raise_error
         end
       end
@@ -86,13 +86,13 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         before(:each) do
           get '/current_account'
         end
-        it 'success response' do
+        it '1, success response' do
           expect(response).to have_http_status(:success)
         end
-        it 'response json' do
+        it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it 'render current_account as admin should not raise an error' do
+        it '3, render current_account as admin should not raise an error' do
           expect { response.body }.to_not raise_error
         end
       end
@@ -100,13 +100,13 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         before(:each) do
           get '/current_account/trader_list'
         end
-        it 'success response' do
+        it '1, success response' do
           expect(response).to have_http_status(:success)
         end
-        it 'response json' do
+        it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it 'render all trader should not raise an error' do
+        it '3, render all trader should not raise an error' do
           expect { response.body }.to_not raise_error
         end
       end

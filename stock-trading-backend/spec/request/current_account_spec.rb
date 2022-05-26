@@ -7,9 +7,11 @@ RSpec.describe 'CurrentAccounts', type: :request do
         @account = FactoryBot.create :trader
         @account.confirm
         sign_in @account
-        get '/current_account'
       end
       describe '/current_account' do
+        before(:each) do
+          get '/current_account'
+        end
         it 'success response' do
           expect(response).to have_http_status(:success)
         end

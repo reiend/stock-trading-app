@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'CurrentAccounts', type: :request do
+RSpec.describe 'CurrentAccount\'s Request', type: :request do
   describe 'Get' do
     describe 'Trader' do
       before(:each) do

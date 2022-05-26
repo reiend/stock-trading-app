@@ -32,4 +32,3 @@ RSpec.describe 'Account\'s Request', type: :request do
     end
   end
 end
-

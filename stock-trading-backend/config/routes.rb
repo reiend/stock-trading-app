@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get '/current_account/transactions', to: 'current_account#transactions'
 
   get '/current_account/trader_list', to: 'current_account#trader_list'
+
+  post '/admin/trader/create', to: 'admin#create'
 end

@@ -5,13 +5,13 @@ RSpec.describe 'Admin', type: :request do
     @account_admin = FactoryBot.create :admin
     @account_admin.confirm
     @account_trader = FactoryBot.create :trader
-    sign_in @account_trader
+    sign_in @account_admin
   end
   describe 'Post' do
     describe '/admin/trader/create' do
       before(:each) do
         headers = { 'ACCEPT' => 'application/json' }
-        post '/admin/trader', params: {
+        post '/admin/trader/create', params: {
           account: {
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,

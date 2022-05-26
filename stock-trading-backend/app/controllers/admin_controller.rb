@@ -18,9 +18,7 @@ class AdminController < ApplicationController
     end
   end
 
-  def approve
-
-  end
+  def approve; end
 
   private
 

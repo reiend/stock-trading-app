@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_154323) do
 
   create_table "stocks", force: :cascade do |t|
     t.string "company_name"
+    t.string "symbol"
     t.decimal "current_price"
     t.decimal "change_percent"
     t.integer "quantity"
@@ -49,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_154323) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "stock_name"
+    t.string "symbol"
     t.string "transaction_type"
     t.decimal "bought_price"
     t.integer "quantity"

@@ -23,6 +23,13 @@ class AdminController < ApplicationController
 
   def approve
     @account = Account.find(params[:id])
+    @account.update_columns(is_approved: true)
+    render json: @account
+  rescue StandardError
+    render json: {
+      status: 401,
+      message: 'something went wrong'
+    }
   end
 
   private

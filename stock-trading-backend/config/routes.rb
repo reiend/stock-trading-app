@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get '/current_account/trader_list', to: 'current_account#trader_list'
 
   post '/admin/trader/create', to: 'admin#create'
+  patch '/admin/trader/:id/approve', to: 'admin#approve'
 end

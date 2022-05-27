@@ -39,8 +39,6 @@ RSpec.describe 'Admin', type: :request do
       end
 
       it '1, successfully approved a trader' do
-        @account_trader.confirm
-        expect(@account_trader.confirmed_at).to_not be_nil
         expect(response).to have_http_status(:success)
       end
 

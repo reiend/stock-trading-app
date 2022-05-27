@@ -72,7 +72,15 @@ RSpec.describe 'Trader', type: :request do
     describe 'trader/buy' do
       before(:each) do
         headers = { 'ACCEPT' => 'application/json' }
-        post '/trader/buy', params: { transaction: transaction_buy }, headers:
+        post '/trader/buy', params: {
+          transaction: {
+            stock_name: 'Tesla',
+            symbol: 'Tesla',
+            quantity: 1,
+            bought_price: 244.24,
+            transaction_type: 'buy'
+          }
+        }, headers:
       end
 
       it '1, successfully bought a stock' do

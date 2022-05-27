@@ -7,6 +7,7 @@ RSpec.describe "Account's Model", type: :model do
       first_name: 'account',
       last_name: 'test1',
       balance: 2500.25,
+      is_approved: false,
       role: 'trader'
     )
   end
@@ -66,6 +67,15 @@ RSpec.describe "Account's Model", type: :model do
         end
         it '2, must be trader' do
           expect(account_trader1.role).to eq('trader')
+        end
+      end
+
+      context 'is_approved' do
+        it '1, account approval should be false when created' do
+          expect(account_trader1.is_approved).to eq(false)
+        end
+        it '2, must be a Boolean' do
+          expect(account_trader1.is_approved).to eq(false) || eq(true)
         end
       end
     end

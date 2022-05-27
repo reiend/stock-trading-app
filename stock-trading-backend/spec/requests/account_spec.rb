@@ -10,26 +10,29 @@ RSpec.describe 'Account\'s Request', type: :request do
           last_name: 'trader_100',
           email: 'trader_100@gmail.com',
           password: 'trader_100',
+          confirmed_at: nil,
           password_confirmation: 'trader_100'
         }
       }, headers:
     end
     describe '/signup' do
-      it 'response json' do
+      it '1, response json' do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
-      it 'response created' do
+      it '2, successfully created an account' do
         expect(response).to have_http_status(:success)
+      end
+      it '3, after signup account needs an email confirmation' do
+        expect(JSON.parse(response.body)['confirmed_at']).to be_nil
       end
     end
     describe '/signin' do
-      it 'response json' do
+      it '1, response json' do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
-      it 'response success' do
+      it '2, successfully signin' do
         expect(response).to have_http_status(:success)
       end
     end
   end
 end
-

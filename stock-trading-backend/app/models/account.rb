@@ -11,7 +11,6 @@ class Account < ApplicationRecord
             format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i },
             uniqueness: true
 
-
   include Devise::JWT::RevocationStrategies::JTIMatcher
   devise :database_authenticatable,
          :registerable,

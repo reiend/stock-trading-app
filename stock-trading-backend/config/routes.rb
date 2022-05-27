@@ -10,4 +10,12 @@ Rails.application.routes.draw do
                         }
 
   get '/current_account', to: 'current_account#index'
+  get '/current_account/stocks_bought', to: 'current_account#stocks_bought'
+  get '/current_account/stocks_sold', to: 'current_account#stocks_bought'
+  get '/current_account/transactions', to: 'current_account#transactions'
+
+  get '/current_account/trader_list', to: 'current_account#trader_list'
+
+  post '/admin/trader/create', to: 'admin#create'
+  patch '/admin/trader/:id/approve', to: 'admin#approve'
 end

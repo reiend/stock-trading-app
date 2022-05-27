@@ -1,5 +1,6 @@
 class CurrentAccountController < ApplicationController
   before_action :authenticate_account!
+  before_action :trader_approved?
 
   def index
     render json: current_account
@@ -45,6 +46,17 @@ class CurrentAccountController < ApplicationController
       render json: {
         status: '401',
         message: 'account role must be admin'
+      }
+    end
+  end
+
+  private
+
+  def trader_approved?
+    if current_account.role == 'trader' && !current_account.is_approved
+      render json: {
+        status: 401,
+        message: 'trader account needs admin approval'
       }
     end
   end

@@ -21,7 +21,9 @@ class AdminController < ApplicationController
     end
   end
 
-  def approve; end
+  def approve
+    @account = Account.find(params[:id])
+  end
 
   private
 

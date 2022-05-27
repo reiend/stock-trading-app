@@ -23,13 +23,22 @@ class AdminController < ApplicationController
 
   def approve
     @account = Account.find(params[:id])
+
+    unless @account.is_approved
+      render json: {
+        status: 401,
+        message: 'account trader must be approved first',
+      }
+    end
+
     @account.update_columns(is_approved: true)
+
     render json: {
       status: 201,
-      message: "Successfully approved trader",
+      message: 'Successfully approved trader',
       trader: @account
     }
-  rescue StandardError
+  rescue ActiveRecord::RecordNotFound
     render json: {
       status: 401,
       message: 'something went wrong'

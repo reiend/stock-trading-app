@@ -7,4 +7,5 @@ class TraderController < ApplicationController
 
   # buy
   # sell
+
 end

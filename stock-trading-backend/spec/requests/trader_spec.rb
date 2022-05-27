@@ -30,6 +30,7 @@ RSpec.describe 'Trader', type: :request do
       it '2, response json' do
         expect(response.content_type).to eq('application/json; charset=utf-8')
       end
+
     end
 
     describe 'trader/sell' do
@@ -38,6 +39,7 @@ RSpec.describe 'Trader', type: :request do
         post '/trader/sell', params: {
           transaction: {
             id: 2
+            quantity: 1,
           }
         }, headers:
       end

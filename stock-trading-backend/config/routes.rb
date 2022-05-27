@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   post '/admin/trader/create', to: 'admin#create'
   patch '/admin/trader/:id/approve', to: 'admin#approve'
 
+  post '/trader/buy', to: 'trader#buy'
+  post '/trader/sell', to: 'trader#sell'
+
 end

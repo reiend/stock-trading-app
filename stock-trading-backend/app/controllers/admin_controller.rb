@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# AdminController's Template
 class AdminController < ApplicationController
   before_action :authenticate_account!
   before_action :admin?

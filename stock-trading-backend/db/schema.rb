@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_154323) do
     t.string "first_name"
     t.string "last_name"
     t.string "role", default: "trader"
+    t.boolean "is_approved"
     t.decimal "balance"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

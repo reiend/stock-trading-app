@@ -92,7 +92,7 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it '3, render current_account as admin should not raise an error' do
+        it '3, rendering current_account as admin should not raise an error' do
           expect { response.body }.to_not raise_error
         end
       end
@@ -106,7 +106,7 @@ RSpec.describe 'CurrentAccount\'s Request', type: :request do
         it '2, response json' do
           expect(response.content_type).to eq('application/json; charset=utf-8')
         end
-        it '3, render all trader should not raise an error' do
+        it '3, rendering all trader should not raise an error' do
           expect { response.body }.to_not raise_error
         end
       end

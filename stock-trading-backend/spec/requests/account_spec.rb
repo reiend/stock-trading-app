@@ -10,6 +10,7 @@ RSpec.describe 'Account\'s Request', type: :request do
           last_name: 'trader_100',
           email: 'trader_100@gmail.com',
           password: 'trader_100',
+          confirmed_at: nil,
           password_confirmation: 'trader_100'
         }
       }, headers:
@@ -20,6 +21,9 @@ RSpec.describe 'Account\'s Request', type: :request do
       end
       it '2, successfully created an account' do
         expect(response).to have_http_status(:success)
+      end
+      it '3, after signup account needs an email confirmation' do
+        expect(JSON.parse(response.body)['confirmed_at']).to be_nil
       end
     end
     describe '/signin' do

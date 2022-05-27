@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe "Account's Model", type: :model do
@@ -11,6 +13,7 @@ RSpec.describe "Account's Model", type: :model do
       role: 'trader'
     )
   end
+
   # admin
   let(:account_admin) { Account.new(role: 'admin') }
   let(:account_admin_dummy) { Account.new(role: 'role_should_be_not_admin') }

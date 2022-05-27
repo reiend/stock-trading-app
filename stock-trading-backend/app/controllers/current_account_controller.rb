@@ -1,3 +1,6 @@
+# frozen_sring_literal: true
+
+# CurrentAccountController's Template
 class CurrentAccountController < ApplicationController
   before_action :authenticate_account!
   before_action :trader_approved?

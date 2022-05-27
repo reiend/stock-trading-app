@@ -24,7 +24,11 @@ class AdminController < ApplicationController
   def approve
     @account = Account.find(params[:id])
     @account.update_columns(is_approved: true)
-    render json: @account
+    render json: {
+      status: 201,
+      message: "Successfully approved trader",
+      trader: @account
+    }
   rescue StandardError
     render json: {
       status: 401,

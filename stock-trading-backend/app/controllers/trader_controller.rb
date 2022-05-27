@@ -6,7 +6,5 @@ class TraderController < ApplicationController
   # callback differs on transaction_type
 
   # buy
-  
   # sell
-
 end

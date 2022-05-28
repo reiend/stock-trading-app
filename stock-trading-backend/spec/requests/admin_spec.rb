@@ -11,9 +11,9 @@ RSpec.describe 'Admin', type: :request do
   end
 
   describe 'Get' do
-    describe '/admin/traders/pending_appprove' do
+    describe '/admin/traders/pending_approve' do
       before(:each) do
-        get '/admin/traders/pending_appprove'
+        get '/admin/traders/pending_approve'
       end
       it '1, success response' do
         expect(response).to have_http_status(:success)

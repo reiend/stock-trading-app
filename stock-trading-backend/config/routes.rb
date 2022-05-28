@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   post '/admin/trader/create', to: 'admin#create'
   patch '/admin/trader/:id/approve', to: 'admin#approve'
+  get '/admin/traders/pending_approve', to: 'admin#traders_pending'
 
   post '/trader/buy', to: 'trader#buy'
   post '/trader/sell', to: 'trader#sell'

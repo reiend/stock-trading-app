@@ -21,6 +21,13 @@ class AdminController < ApplicationController
     end
   end
 
+  def traders_pending
+    render json: {
+      status: 200,
+      message: "Successfully render all pending trader",
+      pending_approvals: Account.all.where(is_approved: nil, role: "trader")
+    }
+  end
 
   def approve
     @account = Account.find(params[:id])

@@ -21,20 +21,38 @@ class AdminController < ApplicationController
     end
   end
 
+  def traders_pending
+    render json: {
+      status: 200,
+      message: "Successfully render all pending trader",
+      pending_approvals: Account.all.where(is_approved: nil, role: "trader")
+    }
+  end
+
   def approve
     @account = Account.find(params[:id])
-    @account.update_columns(is_approved: true)
-    render json: {
-      status: 201,
-      message: "Successfully approved trader",
-      trader: @account
-    }
-  rescue StandardError
+
+    if @account.is_approved
+      @account.update_columns(is_approved: true)
+
+      render json: {
+        status: 201,
+        message: 'Successfully approved trader',
+        trader: @account
+      }
+    else
+      render json: {
+        status: 401,
+        message: 'account trader must be approved first'
+      }
+    end
+  rescue ActiveRecord::RecordNotFound
     render json: {
       status: 401,
       message: 'something went wrong'
     }
   end
+
 
   private
 

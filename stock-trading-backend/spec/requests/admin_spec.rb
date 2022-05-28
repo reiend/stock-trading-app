@@ -9,6 +9,24 @@ RSpec.describe 'Admin', type: :request do
     @account_trader = FactoryBot.create :trader
     sign_in @account_admin
   end
+
+  describe 'Get' do
+    describe '/admin/traders/pending_approve' do
+      before(:each) do
+        get '/admin/traders/pending_approve'
+      end
+      it '1, success response' do
+        expect(response).to have_http_status(:success)
+      end
+      it '2, response json' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+      it '3, render trader that need admin approval' do
+        expect { response.body }.to_not raise_error
+      end
+    end
+  end
+
   describe 'Post' do
     describe '/admin/trader/create' do
       before(:each) do

@@ -8,6 +8,7 @@ RSpec.describe "Stock's Model", type: :model do
   let(:stock1) do
     Stock.new(
       company_name: 'Tesla',
+      symbol: 'Tesla',
       quantity: 5,
       current_price: 150.25,
       change_percent: 0.0245
@@ -17,6 +18,7 @@ RSpec.describe "Stock's Model", type: :model do
   let(:stock2) do
     Stock.new(
       company_name: 'Microsoft',
+      symbol: 'Microsoft',
       quantity: 1,
       current_price: 250.25,
       change_percent: 0.0445
@@ -32,6 +34,17 @@ RSpec.describe "Stock's Model", type: :model do
     end
     it '3, must have a value' do
       expect(stock1.company_name).to_not be_nil
+    end
+  end
+  context 'symbol' do
+    it '1, must be unique' do
+      expect(stock1.symbol).to_not eq(stock2.symbol)
+    end
+    it '2, must be type String' do
+      expect(stock1.symbol).to be_a String
+    end
+    it '3, must have a value' do
+      expect(stock1.symbol).to_not be_nil
     end
   end
   context 'quantity' do

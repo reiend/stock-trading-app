@@ -45,6 +45,7 @@ class AdminController < ApplicationController
     }
   end
 
+
   private
 
   def admin?

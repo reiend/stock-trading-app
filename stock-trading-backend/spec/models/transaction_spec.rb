@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe "Transaction's Model", type: :model do
@@ -7,6 +9,7 @@ RSpec.describe "Transaction's Model", type: :model do
       transaction_type: 'buy',
       bought_price: 425.52,
       stock_name: 'Tesla',
+      symbol: 'Tesla',
       quantity: 2
     )
   end
@@ -28,6 +31,15 @@ RSpec.describe "Transaction's Model", type: :model do
     end
     it '2, must have a value' do
       expect(transaction.stock_name).to_not be_nil
+    end
+  end
+
+  context 'symbol' do
+    it '1, must be type String' do
+      expect(transaction.symbol).to be_a String
+    end
+    it '2, must have a value' do
+      expect(transaction.symbol).to_not be_nil
     end
   end
 

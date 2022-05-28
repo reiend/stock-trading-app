@@ -3,7 +3,8 @@
 # TraderController's Template
 class TraderController < ApplicationController
   before_action :authenticate_account!
-  before_action :admin?
+  before_action :trader_approved?
+
   # TODO: cleanups
 
   def buy

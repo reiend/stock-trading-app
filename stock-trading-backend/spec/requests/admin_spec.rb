@@ -26,9 +26,10 @@ RSpec.describe 'Admin', type: :request do
       end
     end
 
-    describe '/admin/trader/:id' do
+    describe '/admin/trader' do
       before(:each) do
-        get '/admin/trader/:id', params: {
+        headers = { 'ACCEPT' => 'application/json' }
+        get '/admin/trader', params: {
           account: {
             id: 2
           }

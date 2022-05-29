@@ -24,9 +24,35 @@ class AdminController < ApplicationController
   def traders_pending
     render json: {
       status: 200,
-      message: "Successfully render all pending trader",
-      pending_approvals: Account.all.where(is_approved: nil, role: "trader")
+      message: 'Successfully render all pending trader',
+      pending_approvals: Account.all.where(is_approved: nil, role: 'trader')
     }
+  end
+
+  def trader
+    begin
+      admin_id = 1
+      @trader = Account.find(specific_trader_params[:id])
+
+      if @trader.id == admin_id
+        render json: {
+          status: 200,
+          message: 'invalid id, start with 2'
+        }
+        return
+      end
+
+      render json: {
+        status: 200,
+        message: 'successfully get a trader',
+        trader: @trader
+      }
+    rescue
+      render json: {
+        status: 401,
+        message: 'trader can\'t be found',
+      }
+    end
   end
 
   def approve
@@ -53,7 +79,6 @@ class AdminController < ApplicationController
     }
   end
 
-
   private
 
   def admin?
@@ -68,6 +93,14 @@ class AdminController < ApplicationController
         :last_name,
         :email,
         :password
+      )
+  end
+
+  def specific_trader_params
+    params
+      .require(:account)
+      .permit(
+        :id
       )
   end
 end

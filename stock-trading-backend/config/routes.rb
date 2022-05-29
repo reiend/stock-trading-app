@@ -17,9 +17,15 @@ Rails.application.routes.draw do
   get '/current_account/trader_list', to: 'current_account#trader_list'
 
   post '/admin/trader/create', to: 'admin#create'
+
   patch '/admin/trader/:id/approve', to: 'admin#approve'
+  get '/admin/trader', to: 'admin#trader'
   get '/admin/traders/pending_approve', to: 'admin#traders_pending'
 
   post '/trader/buy', to: 'trader#buy'
   post '/trader/sell', to: 'trader#sell'
+
+  get '/stock_list', to: 'stock#list'
+
+
 end

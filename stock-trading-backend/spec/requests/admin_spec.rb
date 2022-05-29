@@ -25,6 +25,26 @@ RSpec.describe 'Admin', type: :request do
         expect { response.body }.to_not raise_error
       end
     end
+
+    describe '/admin/trader' do
+      before(:each) do
+        headers = { 'ACCEPT' => 'application/json' }
+        get '/admin/trader', params: {
+          account: {
+            id: 2
+          }
+        }, headers:
+      end
+      it '1, success response' do
+        expect(response).to have_http_status(:success)
+      end
+      it '2, response json' do
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+      end
+      it '3, rendering specific trader shoudn\'t raise an error' do
+        expect { response.body }.to_not raise_error
+      end
+    end
   end
 
   describe 'Post' do

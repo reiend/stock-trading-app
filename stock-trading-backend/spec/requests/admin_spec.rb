@@ -25,12 +25,14 @@ RSpec.describe 'Admin', type: :request do
         expect { response.body }.to_not raise_error
       end
     end
-  end
 
-  describe 'Get' do
     describe '/admin/trader/:id' do
       before(:each) do
-        get '/admin/traders/'
+        get '/admin/trader/:id', params: {
+          account: {
+            id: 2
+          }
+        }, headers:
       end
       it '1, success response' do
         expect(response).to have_http_status(:success)

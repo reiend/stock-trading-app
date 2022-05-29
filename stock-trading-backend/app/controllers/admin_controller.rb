@@ -23,7 +23,7 @@ class AdminController < ApplicationController
 
   def traders_pending
     render json: {
-      status: 200,
+      status: 201,
       message: 'Successfully render all pending trader',
       pending_approvals: Account.all.where(is_approved: nil, role: 'trader')
     }
@@ -91,6 +91,7 @@ class AdminController < ApplicationController
       .permit(
         :first_name,
         :last_name,
+        :balance,
         :email,
         :password
       )

@@ -24,4 +24,8 @@ Rails.application.routes.draw do
 
   post '/trader/buy', to: 'trader#buy'
   post '/trader/sell', to: 'trader#sell'
+
+  get '/stock_list', to: 'stock#list'
+
+
 end

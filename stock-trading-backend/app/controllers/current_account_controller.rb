@@ -11,7 +11,19 @@ class CurrentAccountController < ApplicationController
 
   def stocks_bought
     if current_account.role == 'trader'
-      render json: current_account.transactions.where(transaction_type: 'buy')
+      transactions_buy = current_account.transactions.where(transaction_type: 'buy')
+
+      total_bought_stock = 0
+      transactions_buy.each do |stock_bought|
+        total_bought_stock += (stock_bought['bought_price'] * stock_bought['quantity'])
+      end
+
+      render json: {
+        status: '200',
+        message: 'successfully render all bought stock grater than zero',
+        total_bought: total_bought_stock,
+        transactions: transactions_buy
+      }
     else
       render json: {
         status: '401',
@@ -22,7 +34,20 @@ class CurrentAccountController < ApplicationController
 
   def stocks_sold
     if current_account.role == 'trader'
-      render json: current_account.transactions.where(transaction_type: 'sold')
+      transactions_sell = current_account.transactions.where(transaction_type: 'sell')
+
+      total_sold_stock = 0
+      transactions_sell.each do |stock_sold|
+        total_sold_stock += (stock_sold['bought_price'] * stock_sold['quantity'])
+      end
+
+      render json: {
+        status: '200',
+        message: 'successfully render all bought stock grater than zero',
+        total_sold: total_sold_stock,
+        transactions: transactions_sell
+      }
+
     else
       render json: {
         status: '401',

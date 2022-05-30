@@ -30,35 +30,33 @@ class AdminController < ApplicationController
   end
 
   def trader
-    begin
-      admin_id = 1
-      @trader = Account.find(specific_trader_params[:id])
+    admin_id = 1
+    @trader = Account.find(specific_trader_params[:id])
 
-      if @trader.id == admin_id
-        render json: {
-          status: 200,
-          message: 'invalid id, start with 2'
-        }
-        return
-      end
-
+    if @trader.id == admin_id
       render json: {
         status: 200,
-        message: 'successfully get a trader',
-        trader: @trader
+        message: 'invalid id, start with 2'
       }
-    rescue
-      render json: {
-        status: 401,
-        message: 'trader can\'t be found',
-      }
+      return
     end
+
+    render json: {
+      status: 200,
+      message: 'successfully get a trader',
+      trader: @trader
+    }
+  rescue StandardError
+    render json: {
+      status: 401,
+      message: 'trader can\'t be found'
+    }
   end
 
   def approve
     @account = Account.find(params[:id])
 
-    if @account.is_approved
+    if @account.is_approved.nil?
       @account.update_columns(is_approved: true)
 
       render json: {

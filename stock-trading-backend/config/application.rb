@@ -14,6 +14,8 @@ module StockTradingBackend
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use config.session_store, config.session_options
 
+    config.active_support.key_generator_hash_digest_class = OpenSSL::Digest::SHA1
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

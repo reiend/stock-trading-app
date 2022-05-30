@@ -1,7 +1,6 @@
 # Load the Rails application.
 require_relative 'application'
 
-ActionMailer::Base.default_url_options = { host: 'stock-trading-backend.herokuapp.com' }
 ActionMailer::Base.perform_deliveries = true
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.delivery_method = :smtp

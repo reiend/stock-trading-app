@@ -10,7 +10,7 @@ admin = Account.create!(
   role: 'admin'
 )
 
-admin.confirm
+admin.confirm!
 
 IEX::Api::Client.new(
   publishable_token: 'pk_9d26176d72f845e7ad03a261815928c5',

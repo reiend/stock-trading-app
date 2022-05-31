@@ -3,6 +3,7 @@ const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");         /* for loading / create html */
 const MinicssExtractPlugin = require("mini-css-extract-plugin")   /* extracting css from js*/
 const PurgecssPlugin = require('purgecss-webpack-plugin')         /* for cleaning unused style */
+const Dotenv = require('dotenv-webpack')
 
 const ROOT_PATH = {
   src: path.resolve(__dirname, `src`)
@@ -83,6 +84,7 @@ module.exports = {
       title: "Stock Trading App",
       filename: "index.html",
     }),
+    new Dotenv(),
     // css extractor from js
     new MinicssExtractPlugin({
       filename: "[name].bundle.css",
